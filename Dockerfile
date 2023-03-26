@@ -4,7 +4,7 @@ RUN git clone --depth 1 https://github.com/apache/incubator-eventmesh.git && \
     cd incubator-eventmesh && \
     gradle clean jar dist -x test -x spotbugsMain
 
-RUN shoothzj/base:jdk17
+FROM shoothzj/base:jdk17
 
 COPY --from=compiler /incubator-eventmesh/dist /opt/eventmesh
 
