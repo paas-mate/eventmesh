@@ -2,7 +2,8 @@ FROM shoothzj/compile:jdk17-gradle as compiler
 
 RUN git clone --depth 1 https://github.com/apache/incubator-eventmesh.git && \
     cd incubator-eventmesh && \
-    gradle clean jar dist -x test -x spotbugsMain
+    gradle clean jar dist -x test -x spotbugsMain -x javaDoc && \
+    gradle installPlugin \
 
 FROM shoothzj/base:jdk17
 
